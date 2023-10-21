@@ -14,6 +14,11 @@ public class JiraGateway: IJiraGateway {
 
 	}
 
+	public Task GetIssueAsync(string project, string key)
+	{
+		throw new NotImplementedException();
+	}
+
 	public async Task<String> PingJira() {
 
 		return "Jira Was Pung";
