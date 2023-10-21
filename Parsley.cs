@@ -24,7 +24,7 @@ public static class Parsley {
         var paramz = BuildParamDict(args);
 
         var parsedOutput = ParseOutputFormat(paramz);
-        
+
         if(paramz.ContainsKey(FlagTypes.Output)) { 
             paramz.Remove(FlagTypes.Output);
         }
@@ -38,22 +38,22 @@ public static class Parsley {
 
     private static OutputFormat ParseOutputFormat(Dictionary<FlagTypes, string> paramz)
     {
-        if(paramz.ContainsKey(FlagTypes.Output)) {
-
-            OutputFormat res = paramz[FlagTypes.Output] switch 
-            {
-                "json" => OutputFormat.Json,
-                "yaml" => OutputFormat.Yaml,
-                "yml" => OutputFormat.Yaml,
-                "plain" => OutputFormat.PlainText,
-                "plainText" => OutputFormat.PlainText,
-                _ => OutputFormat.PlainText
-            };
-
-            return res;
+        if(!paramz.ContainsKey(FlagTypes.Output)) {
+            //default
+            return OutputFormat.PlainText;
         }
 
-        return OutputFormat.PlainText;
+        OutputFormat res = paramz[FlagTypes.Output] switch 
+        {
+            "json" => OutputFormat.Json,
+            "yaml" => OutputFormat.Yaml,
+            "yml" => OutputFormat.Yaml,
+            "plain" => OutputFormat.PlainText,
+            "plainText" => OutputFormat.PlainText,
+            _ => OutputFormat.PlainText
+        };
+
+        return res;
     }
 
     private static Dictionary<FlagTypes, string> BuildParamDict(string[] args){
