@@ -1,11 +1,12 @@
 using Kek5.Joho.Domain;
+using Kek5.Joho.Domain.Interfaces;
 using Kek5.Joho.Emums;
 
 namespace Kek5.Joho;
 
 public static class Parsley {
 
-    public static Command ParseArguments(string[] args)
+    public static ICommand ParseArguments(string[] args)
     {
         if (args.Length < 2)
         {
@@ -28,10 +29,11 @@ public static class Parsley {
         if(paramz.ContainsKey(FlagTypes.Output)) { 
             paramz.Remove(FlagTypes.Output);
         }
-
-        return new Command {
+        
+        //use command factory
+        return new GetIssueCommand {
             CommandType = commandType,
-            Params = paramz,
+            Paramz = paramz,
             OutputFormat = parsedOutput 
         };
     }
