@@ -7,8 +7,6 @@ namespace Kek5.Joho;
 
 class Program
 {
-    const String BASE_URI = "https://shart.atlassian.net/rest/api/3/";
-
     static async Task Main(string[] args)
     {
         var builder = new ConfigurationBuilder()
@@ -42,7 +40,7 @@ class Program
     private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
     {
         // Register services with DI here
-        services.AddTransient<IJiraGateway>(_ => new JiraGateway(configuration["API_KEY"]!, BASE_URI));
+        services.AddTransient<IJiraGateway>(_ => new JiraGateway(configuration["API_KEY"]!, configuration["BASE_URI"]!));
         services.AddTransient<IGitLabGateway>(_ => new GitLabGateway());
     }
 
