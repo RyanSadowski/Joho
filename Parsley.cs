@@ -6,7 +6,7 @@ namespace Kek5.Joho;
 
 public static class Parsley {
 
-    public static ICommand ParseArguments(string[] args)
+    public static InputData ParseArguments(string[] args)
     {
         if (args.Length < 2)
         {
@@ -30,8 +30,7 @@ public static class Parsley {
             paramz.Remove(FlagTypes.Output);
         }
         
-        //use command factory
-        return new GetIssueCommand {
+        return new InputData {
             CommandType = commandType,
             Paramz = paramz,
             OutputFormat = parsedOutput 
