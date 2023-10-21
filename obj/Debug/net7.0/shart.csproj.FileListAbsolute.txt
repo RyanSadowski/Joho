@@ -1,0 +1,5 @@
+/home/namo/Dev/shart/obj/Debug/net7.0/shart.csproj.AssemblyReference.cache
+/home/namo/Dev/shart/obj/Debug/net7.0/shart.GeneratedMSBuildEditorConfig.editorconfig
+/home/namo/Dev/shart/obj/Debug/net7.0/shart.AssemblyInfoInputs.cache
+/home/namo/Dev/shart/obj/Debug/net7.0/shart.AssemblyInfo.cs
+/home/namo/Dev/shart/obj/Debug/net7.0/shart.csproj.CoreCompileInputs.cache
