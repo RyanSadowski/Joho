@@ -21,16 +21,14 @@ class Program
         ConfigureServices(serviceCollection, configuration);
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
-        // Resolve the services from the service provider
-        var jiraGateway = serviceProvider.GetService<IJiraGateway>();
-        var gitLabGateway = serviceProvider.GetService<IGitLabGateway>();
         var commandFactory = serviceProvider.GetService<ICommandFactory>();
 
-        // Your CLI logic goes here
+        // Do the thing
         try
         {
             var inputData = Parsley.ParseArguments(args);
-            Console.WriteLine(inputData);
+            var command = commandFactory.CreateCommand(inputData);
+            Console.WriteLine(command);
         }
         catch (Exception ex)
         {
