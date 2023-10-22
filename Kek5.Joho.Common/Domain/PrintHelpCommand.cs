@@ -1,9 +1,9 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Kek5.Joho.Domain.Interfaces;
-using Kek5.Joho.Emums;
+using Kek5.Joho.Common.Enums;
+using Kek5.Joho.Common.Interfaces;
 
-namespace Kek5.Joho.Domain;
+namespace Kek5.Joho.Common.Domain;
 
 public class PrintHelpCommand : ICommand
 {

@@ -1,6 +1,6 @@
-using Kek5.Joho.Emums;
+using Kek5.Joho.Common.Enums;
 
-namespace Kek5.Joho;
+namespace Kek5.Joho.Cli;
 
 public static class Formatter {
     

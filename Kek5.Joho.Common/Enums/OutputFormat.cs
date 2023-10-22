@@ -1,4 +1,4 @@
-namespace Kek5.Joho.Emums;
+namespace Kek5.Joho.Common.Enums;
 
 public enum OutputFormat
 {

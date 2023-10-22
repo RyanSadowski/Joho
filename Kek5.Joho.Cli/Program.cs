@@ -1,11 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Kek5.Joho.Common.Factories;
+using Kek5.Joho.Common.Gateways;
+using Kek5.Joho.Common.Interfaces;
 using Microsoft.Extensions.Configuration;
-using Kek5.Joho.Gateways;
-using Kek5.Joho.Gateways.Interfaces;
-using Kek5.Joho.Factories.Interfaces;
-using Kek5.Joho.Factories;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Kek5.Joho;
+namespace Kek5.Joho.Cli;
 
 class Program
 {
@@ -39,10 +38,17 @@ class Program
 
     private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
     {
-        // Register services with DI here
-        services.AddTransient<IJiraGateway>(_ => new JiraGateway(configuration["API_KEY"]!, configuration["BASE_URI"]!));
+
+        var baseJiraUri = configuration["Jira:BaseUri"];
+        var jiraApiKey = configuration["Jira:ApiKey"];
+        var jiraApiEmail = configuration["Jira:Email"];
+        
+        var token = Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes($"{jiraApiEmail}:{jiraApiKey}"));
+        
+        
+        services.AddTransient<IJiraGateway>(_ => new JiraGateway(new HttpClient(), token, baseJiraUri));
         services.AddTransient<IGitLabGateway>(_ => new GitLabGateway());
-        services.AddTransient<ICommandFactory>(_ => new CommandFactory());
+        services.AddTransient<ICommandFactory>(provider => new CommandFactory(provider.GetService<IJiraGateway>()));
     }
 
 

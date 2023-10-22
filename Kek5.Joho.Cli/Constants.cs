@@ -1,7 +1,7 @@
 using System.Collections.Immutable;
-using Kek5.Joho.Emums;
+using Kek5.Joho.Common.Enums;
 
-namespace Kek5.Joho;
+namespace Kek5.Joho.Cli;
 
 public static class Constants {
     public static readonly ImmutableDictionary<string, FlagTypes> AVALIABLE_FLAGS = ImmutableDictionary.CreateRange(new Dictionary<string, FlagTypes>

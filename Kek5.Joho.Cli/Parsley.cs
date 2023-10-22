@@ -1,8 +1,7 @@
-using Kek5.Joho.Domain;
-using Kek5.Joho.Domain.Interfaces;
-using Kek5.Joho.Emums;
+using Kek5.Joho.Common.Domain;
+using Kek5.Joho.Common.Enums;
 
-namespace Kek5.Joho;
+namespace Kek5.Joho.Cli;
 
 public static class Parsley {
 

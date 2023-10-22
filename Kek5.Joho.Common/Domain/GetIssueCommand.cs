@@ -1,17 +1,25 @@
+using System.Collections;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Kek5.Joho.Domain.Interfaces;
-using Kek5.Joho.Emums;
-using Kek5.Joho.Gateways.Interfaces;
+using Kek5.Joho.Common.Enums;
+using Kek5.Joho.Common.Interfaces;
 
-namespace Kek5.Joho.Domain;
+namespace Kek5.Joho.Common.Domain;
 
 public class GetIssueCommand : ICommand
 {
-    private readonly IJiraGateway _jiraGateway;
+    private readonly IJiraGateway? _jiraGateway;
 
-    public GetIssueCommand(IJiraGateway jiraGateway) {
+    public GetIssueCommand(IJiraGateway? jiraGateway, InputData data) {
         _jiraGateway = jiraGateway;
+        if (data.CommandType != Commands.CreateIssue)
+        {
+            // cry
+        }
+
+        CommandType = Commands.CreateIssue;
+        Paramz = data.Paramz;
+        OutputFormat = data.OutputFormat;
     }
 
     public Commands CommandType { get; set; }

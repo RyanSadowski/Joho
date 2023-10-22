@@ -1,6 +1,6 @@
-using Kek5.Joho.Emums;
+using Kek5.Joho.Common.Enums;
 
-namespace Kek5.Joho.Domain;
+namespace Kek5.Joho.Common.Domain;
 
 public class InputData {
 
