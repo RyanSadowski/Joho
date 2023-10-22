@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-public class Attachment
+public class AttachmentDto
 {
     [JsonPropertyName("self")]
     public string Self { get; set; }

@@ -1,11 +1,5 @@
 using System.Text.Json.Serialization;
 
-public class CommentDto
-{
-    [JsonPropertyName("comment")]
-    public CommentDetail Comment { get; set; }
-}
-
 public class CommentDetail
 {
     [JsonPropertyName("comments")]
@@ -33,13 +27,13 @@ public class Comment
     public string Id { get; set; }
 
     [JsonPropertyName("author")]
-    public Author Author { get; set; }
+    public CreatorDto Author { get; set; }
 
     [JsonPropertyName("body")]
     public Body Body { get; set; }
 
     [JsonPropertyName("updateAuthor")]
-    public Author UpdateAuthor { get; set; }
+    public CreatorDto UpdateAuthor { get; set; }
 
     [JsonPropertyName("created")]
     public DateTime Created { get; set; }
